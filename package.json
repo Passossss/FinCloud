@@ -1,0 +1,28 @@
+{
+  "name": "fin-microservices",
+  "version": "1.0.0",
+  "description": "Microservices architecture for Fin financial app",
+  "private": true,
+  "scripts": {
+    "install-all": "npm run install-bff && npm run install-user-service && npm run install-transaction-service",
+    "install-bff": "cd bff && npm install",
+    "install-user-service": "cd user-service && npm install", 
+    "install-transaction-service": "cd transaction-service && npm install",
+    "dev": "concurrently \"npm run dev-bff\" \"npm run dev-user-service\" \"npm run dev-transaction-service\"",
+    "dev-bff": "cd bff && npm run dev",
+    "dev-user-service": "cd user-service && npm run dev",
+    "dev-transaction-service": "cd transaction-service && npm run dev",
+    "start": "concurrently \"npm run start-bff\" \"npm run start-user-service\" \"npm run start-transaction-service\"",
+    "start-bff": "cd bff && npm start",
+    "start-user-service": "cd user-service && npm start",
+    "start-transaction-service": "cd transaction-service && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "bff",
+    "user-service", 
+    "transaction-service"
+  ]
+}
